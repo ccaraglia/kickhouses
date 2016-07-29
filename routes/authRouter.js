@@ -8,7 +8,7 @@ const authRouter = Router()
 
 
 authRouter
-  .post('/register', function(req, res){
+  .post('/register', middleware.checkForSuperUser, function(req, res){
     // passport appends json-data to request.body
     // console.log(req.body)
     let newUser = new User(req.body)
@@ -16,7 +16,7 @@ authRouter
     User.find({email: req.body.email}, function(err, results){
       if (err) return res.status(500).send('error saving querying db for user')
 
-      if(results !== null && results.length > 0 ) { 
+      if(results !== null && results.length > 0 ) {
         return res.status(401).send(`oops, record for <${req.body.email}> already exists`)
       }
 
@@ -37,7 +37,7 @@ authRouter
   .post('/login', passport.authenticate('local'), function(req, res){
       let userCopy = req.user.toObject()
       delete userCopy.password
-      res.json(userCopy)         
+      res.json(userCopy)
   })
   .get('/logout', function (req, res) {
     if (req.user) {

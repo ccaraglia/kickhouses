@@ -39,11 +39,11 @@
     "scss",
     "node"
   ],
-  "author": { 
-    "name" : "Travis Hubbard", 
-    "email" : "t3patterson@gmail.com",
-    "url" : "http://github.com/t3patterson"
-    },
+  "author": {
+    "name": "Travis Hubbard",
+    "email": "t3patterson@gmail.com",
+    "url": "http://github.com/t3patterson"
+  },
   "contributors": [
     {
       "name": "Justin Richards",
@@ -67,11 +67,15 @@
     "ejs": "^2.4.2",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
+    "filepicker-js": "^2.4.14",
     "jquery": "^3.0.0",
     "mongoose": "^4.5.3",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-filepicker": "^0.7.1",
+    "react-search-bar": "^1.1.4",
+    "toastr": "^2.1.2"
   }
 }

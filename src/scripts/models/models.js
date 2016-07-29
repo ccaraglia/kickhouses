@@ -2,6 +2,21 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
 
+
+const CampaignModel = Backbone.Model.extend({
+    urlRoot: '/api/campaigns',
+    idAttribute: '_id'
+})
+
+const CampaignCollection = Backbone.Collection.extend({
+    model: CampaignModel,
+    url: '/api/campaigns'
+
+})
+
+
+
+
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
 	urlRoot: '/api/users',
@@ -21,12 +36,12 @@ UserAuthModel.register = function(newUserData) {
 }
 
 UserAuthModel.login = function(email, password) {
-	if(!email || !password || email === '' || password === '') {  
-		throw new Error("User.login(«email», «password») method needs strings for email, password arguments") 
+	if(!email || !password || email === '' || password === '') {
+		throw new Error("User.login(«email», «password») method needs strings for email, password arguments")
 	}
 
-	if(typeof email !== 'string' || typeof password !== 'string' ) {  
-		throw new Error("User.login(«email», «password») email + password arguments should both be strings") 
+	if(typeof email !== 'string' || typeof password !== 'string' ) {
+		throw new Error("User.login(«email», «password») email + password arguments should both be strings")
 	}
 
 	return $.ajax({
@@ -64,4 +79,4 @@ const User = UserAuthModel.extend({
 	}
 })
 
-export { User }
+export { User, CampaignModel,  CampaignCollection }
