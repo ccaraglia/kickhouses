@@ -1,14 +1,14 @@
  let Router = require('express').Router;
 let passport = require ('passport')
 let User = require('../db/schema.js').User
-let checkAuth = require('../config/middleware.js').checkAuth
+//let checkAuth = require('../config/middleware.js').checkAuth
 
 
 const authRouter = Router()
 
 
 authRouter
-  .post('/register', middleware.checkForSuperUser, function(req, res){
+  .post('/register', function(req, res){
     // passport appends json-data to request.body
     // console.log(req.body)
     let newUser = new User(req.body)

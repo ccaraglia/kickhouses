@@ -35,9 +35,9 @@ const DetailView = React.createClass({
         evt.preventDefault()
         console.log(evt.currentTarget.amount.value)
 
-       ACTIONS.addBacker(this.state.model,{
+       ACTIONS.addBacker(this.state.model, {
                 backerId: User.getCurrentUser()._id,
-                shareValue: evt.currentTarget.amount.value
+                shareValue: parseInt(evt.currentTarget.amount.value)
         })
 
          //   {backers.shareValue: evt.currentTarget.amount.value}
@@ -53,6 +53,7 @@ const DetailView = React.createClass({
         console.log(this.state.model.get('length'))
         if (!this.state.model.attributes.backers) {
             return <div>loading...</div>
+            var totalPledged = 0
         }
 
 
@@ -61,22 +62,35 @@ const DetailView = React.createClass({
 
         var valore = this.state.model.get('value')
         var totalPledged = 0
-        console.log(this.state.model.get('backers')[0].shareValue)
+
 
         for (var i = 0; i < backersSize; i++){
             console.log( this.state.model.get('backers')[i].shareValue )
             totalPledged += this.state.model.get('backers')[i].shareValue
         }
 
-        var percent = totalPledged/valore * 100
+        var percent = parseInt(totalPledged)/parseInt(valore) * 100
+
+        console.log(percent)
+
+
     }
+    if (isNaN(percent)){percent = 0}
+
         return(
             <div className="homeView">
                 <Header />
                 <h2>{this.state.model.get('title')}</h2>
-                <h4>{this.state.model.get('zipcode')}</h4>
-                <h4>{this.state.model.get('value')}</h4>
-                <h4>pledged till now {percent}%</h4>
+                <h3>{this.state.model.get('subtitle')}</h3>
+                <h4>ZIPCODE: {this.state.model.get('zipcode')}</h4>
+                <h4>Wished funds: ${this.state.model.get('value')}</h4>
+                <h4>{this.state.model.get('description')}</h4>
+
+
+                <h4>Pledged funds {Math.floor(percent)}%</h4>
+
+                <img id="thumb" src={this.state.model.get('imageUrl')} />
+
                 <div className="campaignPledgingForm container">
                     <form onSubmit={this._handlePledge} >
 

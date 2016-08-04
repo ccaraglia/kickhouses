@@ -11,7 +11,7 @@ const ComposeView = React.createClass({
         return (
             <div className="composeView" >
                 <Header />
-                <h3>post a bloody campaign!</h3>
+                <h3>Post a new campaign!</h3>
                 <CampaignPostingForm />
             </div>
         )
@@ -33,6 +33,7 @@ const CampaignPostingForm = React.createClass({
             zipcode: evt.currentTarget.zipcode.value,
             authorId: User.getCurrentUser()._id,
             authorEmail: User.getCurrentUser().email,
+            description: evt.currentTarget.description.value,
             imageUrl: this.url ? this.url : "../images/img-not-found.png"
 
         })
@@ -58,7 +59,7 @@ const CampaignPostingForm = React.createClass({
                     </div>
 
                     <div className="form-group">
-                    <textarea className="form-control" type="text" name="value" placeholder="Enter the value"></textarea>
+                    <input className="form-control" type="text" name="value" placeholder="Enter the value" />
                     </div>
 
                      <div className="form-group">

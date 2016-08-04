@@ -7,6 +7,7 @@ import Header from './header'
 import ListingsView from './common/listingsView'
 import {User} from '../models/models'
 
+
 const MyPortfolioView = React.createClass({
 
     getInitialState: function(){
@@ -35,22 +36,23 @@ const MyPortfolioView = React.createClass({
         //  ,,,,(6),,,,CC
 
         console.log('user is', this.state.userModel)
-        console.log('new thing', this.state.collection)
+        console.log('campBacked', this.state.collection.models.length)
 
 
         var size = User.getCurrentUser().campBacked.length
        // for (var i = 0; i < size; i++){
+        console.log('size is', size)
 
-
-        let myColl = this.state.collection
+        let myCollection = this.state.collection
         //}
 
         console.log('Current user: ', User.getCurrentUser())
 
+
         return(
             <div className="homeView">
                 <Header />
-                <ListingsView campaignColl={myColl} />
+                <ListingsView campaignColl = { myCollection } />
             </div>
 
             )

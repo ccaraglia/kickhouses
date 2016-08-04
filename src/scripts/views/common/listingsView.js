@@ -36,9 +36,20 @@ const SingleListingView = React.createClass({
 
 
         return(
+            <div>
+
+            <div id="colLeft">
+            <img id="thumbnail" src={this.props.campaignModel.get('imageUrl')} />
+            </div>
+
+            <div id="colRight">
             <a href={`#campaigns/detail/${this.props.campaignModel.id}`} className='campaign'>
-            <h2>campaign title {this.props.campaignModel.get('title')}</h2>
+            <h2>{this.props.campaignModel.get('title')}</h2>
+            <h4><i className="fa fa-usd"></i> {this.props.campaignModel.get('value')}</h4>
             </a>
+            </div>
+
+            </div>
             )
 
     }

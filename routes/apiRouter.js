@@ -76,7 +76,7 @@ let Campaign = require('../db/schema.js').Campaign
     })
 
     apiRouter.put('/campaigns/:_id', function(request, response){
-        Campaign.findByIdAndUpdate(request.params._id, request.body, function(error, records){
+        Campaign.findByIdAndUpdate(request.params._id, request.body, { new: true }, function(error, records){
             if(error) {
                 response.send(error)
             }

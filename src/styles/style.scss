@@ -1,7 +1,158 @@
 * {
-	font-family: Helvetica, Arial, sans-serif;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+  transition: all .5s;
+  /* background: white; */
 }
+
+img {
+  max-width: 100%;
+  height: 40px;
+}
+
+#thumb{
+    height: 225px;
+    display: block;
+    margin: 10px auto;
+
+}
+
+#colLeft{
+
+    display: inline-block;
+}
+#colRight{
+
+    display: inline-block;
+
+}
+
+#thumbnail{
+    height: 60px;
+    margin-right: 15px;
+    vertical-align: bottom;
+}
+
+img.searchey {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.flip-nav {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  perspective: 100px;
+}
+.flip-nav > * {
+  transform-style: preserve-3d;
+}
+.flip-nav.view-1 .search-bar {
+  top: -35px;
+  transform: rotateX(90deg);
+}
+.flip-nav.view-1 nav {
+  transform: rotateX(0deg);
+  top: -70px;
+}
+.flip-nav.view-2 .search-bar {
+  transform: rotateX(0deg);
+  top: 0;
+}
+.flip-nav.view-2 nav {
+  top: 0;
+  transform: rotateX(-90deg);
+}
+
+.search-bar {
+  position: relative;
+  background: #F4B350;
+  height: 70px;
+  line-height: 70px;
+  text-align: right;
+  padding: 0 10px;
+}
+.search-bar > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+.search-bar .hamburger-menu {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  height: 100%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.search-bar .hamburger-menu:hover > i {
+  color: #fff;
+}
+.search-bar .hamburger-menu > i {
+  line-height: 70px;
+}
+.search-bar input {
+  background: rgba(255, 255, 255, 0);
+  border: 0;
+  border-bottom: 1px solid #333;
+  line-height: 1.5;
+  outline: 0;
+  width: 200px;
+  font-size: 18px;
+  transition: all .07s;
+}
+.search-bar input:focus {
+  border-bottom: 2px solid #333;
+}
+.search-bar.qtr-fwd {
+  top: 0;
+}
+
+nav {
+  position: relative;
+  height: 70px;
+  background: #89C4F4;
+  padding-left: 70px;
+  padding-right: 10px;
+}
+nav .logo {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 60px;
+  display: inline-block;
+  vertical-align: middle;
+}
+nav ul {
+  font-size: 0;
+  text-align: right;
+  line-height: 70px;
+}
+nav ul > * {
+  font-size: 15px;
+  vertical-align: middle;
+  display: inline-block;
+  background: white;
+  overflow: hidden;
+  margin-left: 6px;
+  padding: 0px 10px;
+  line-height: 40px;
+  height: 40px;
+}
+
+li {}
+nav ul .show-search {
+  background: white;
+  cursor: pointer;
+}
+nav ul .show-search:hover {
+  background: gold;
+}
+
+
 
 h1 {
 	font-size: 300px;

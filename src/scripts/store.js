@@ -15,7 +15,6 @@ const CAMPAIGN_STORE = _.extend(Backbone.Events, {
 
     emitChange: function(){
         this.trigger('updateContent')
-
     },
 //get initial state of the app
     getData: function(){
@@ -23,11 +22,16 @@ const CAMPAIGN_STORE = _.extend(Backbone.Events, {
     },
 
      initialize: function(){
-        this.data.collection.on('sync update', this.emitChange.bind(this))
+        this.data.collection.on('sync update reset', this.emitChange.bind(this))
 
         this.data.model.on('sync update', this.emitChange.bind(this))
 
         this.data.userModel.on('sync update', this.emitChange.bind(this))
+    },
+
+    set: function(key,value) {
+        this.data[key] = value
+        this.emitChange()
     }
 
 })

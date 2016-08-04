@@ -37,8 +37,16 @@ const ACTIONS = {
     },
 
     addBackerToCampaign: function(campaignObj,backerObj) {
-        campaignObj.get('backers').push(backerObj)
-        campaignObj.save()
+        let backersList = campaignObj.get('backers').map((copy)=>{ return copy })
+
+        backersList.push(backerObj)
+        campaignObj.set('backers', backersList)
+
+        console.log('backers list??', campaignObj.get('backers'))
+
+        campaignObj.save().then((results)=>{
+            console.log('saved campaign?', results)
+        })
     },
 
     addCampaignToUser: function(campaignId)
@@ -102,12 +110,19 @@ saveCampaign: function(campaignObj){
 
 
         CAMPAIGN_STORE.data.userModel.fetch().then( ()=> {
-            //  ,,,,(5),,,,CC
+            console.log(CAMPAIGN_STORE.data.userModel.get('campBacked'))
             CAMPAIGN_STORE.data.collection.reset(CAMPAIGN_STORE.data.userModel.get('campBacked'))
             console.log('expanded user data')
         })
+    },
+/*  second cool way to do it ... use set in the store
+    fetchUserCampaigns: function(uid) {
+        var um = new User({_id: uid})
+        um.fetch().then(()=> {
+            CAMPAIGN_STORE.set('collection',um.get('campBacked'))
+        })
     }
-
+*/
 }
 
 

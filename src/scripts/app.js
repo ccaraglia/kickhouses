@@ -6,9 +6,10 @@ import LoginView from './views/loginView'
 import ComposeView from './views/ComposeView'
 import HomeView from './views/homeView'
 import MyCampaignView from './views/myCampaignsView'
-import SearchView from './views/searchView'
+//import SearchView from './views/searchView'
 import DetailView from './views/detailView'
 import MyPortfolioView from './views/myPortfolioView'
+import {User} from './models/models'
 
 
 const app = function() {
@@ -34,7 +35,7 @@ var AppRouter = Backbone.Router.extend ({
 
     handleSearch: function(){
       console.log('search suspended')
-      //  ReactDOM.render(<SearchView />, document.querySelector('.container'))
+      /*  ReactDOM.render(<SearchView />, document.querySelector('.container'))  */
     },
 
     handleDetail: function(campaign_id){
@@ -62,6 +63,11 @@ var AppRouter = Backbone.Router.extend ({
     },
 
     initialize: function() { //good way to add logic to check if a user is logged in to protect certain routes
+        this.on('route', (routeHandler) => {
+            if (!User.getCurrentUser()) {
+                location.hash = "login"
+            }
+        })
         Backbone.history.start()
     }
 
