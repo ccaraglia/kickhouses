@@ -9,10 +9,12 @@ import ReactFilepicker from 'react-filepicker'
 const ComposeView = React.createClass({
      render: function() {
         return (
-            <div className="composeView" >
+            <div className="container-full composeView" >
                 <Header />
-                <h3>Post a new campaign!</h3>
-                <CampaignPostingForm />
+                <div className="container-narrow">
+                    <h3>Post a new campaign!!!</h3>
+                    <CampaignPostingForm />
+                </div>
             </div>
         )
     }
@@ -48,32 +50,47 @@ const CampaignPostingForm = React.createClass({
     render: function() {
         return (
             <div className="campaignPostingForm container">
-                <form onSubmit={this._handleCompose} >
+                <form className="form-group grid-container" onSubmit={this._handleCompose} >
 
-                    <div className="form-group">
-                    <input className="form-control" type="text" name="title" placeholder="Enter the campaign title"/>
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+                        <label>Campaign Name</label>
+
+                        <input className="form-control" type="text" name="title" placeholder="Enter the campaign title"/>
                     </div>
 
-                     <div className="form-group">
-                    <textarea className="form-control" type="text" name="subtitle" placeholder="Enter the subtitle"></textarea>
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+                        <label>Brief Label</label>
+
+                        <input type="text" name="subtitle" placeholder="Enter the subtitle"/>
                     </div>
 
-                    <div className="form-group">
-                    <input className="form-control" type="text" name="value" placeholder="Enter the value" />
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+                        <label>Home Value</label>
+                        <input className="form-control" type="text" name="value" placeholder="Enter the value" />
                     </div>
 
-                     <div className="form-group">
-                    <input className="form-control" type="text" name="zipcode" placeholder="ZIPCODE"/>
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+                        <label>Enter Zipcode</label>
+                        <input className="form-control" type="text" name="zipcode" placeholder="ZIPCODE"/>
                     </div>
 
-                     <div className="form-group">
-                    <textarea className="form-control" type="text" name="description" placeholder="Enter the description"></textarea>
+                    <div className="form-field sm-12-x-12 md-12-x-12">
+                        <label>Enter Zipcode</label>
+
+                        <textarea rows="5"className="form-control" type="text" name="description" placeholder="Enter the description"></textarea>
                     </div>
 
-                    <ReactFilepicker apikey="As5zYYoX5Rue7kPqcGGvcz" onSuccess={this._handleImage}/>
+
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+
+                        <ReactFilepicker apikey="As5zYYoX5Rue7kPqcGGvcz" onSuccess={this._handleImage}/>
+                    </div>
 
 
-                    <button className="btn btn-default" type="submit" >SUBMIT </button>
+                    <div className="form-field sm-12-x-12 md-6-x-12">
+                        <button className="btn btn-default" type="submit" >SUBMIT </button>
+                    </div>
+
 
 
                 </form>

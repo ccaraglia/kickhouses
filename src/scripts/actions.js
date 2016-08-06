@@ -1,5 +1,6 @@
 import {User, CampaignModel, CampaignCollection} from './models/models'
 import CAMPAIGN_STORE from './store'
+import toastr from 'toastr'
 
 
 const ACTIONS = {
@@ -19,13 +20,13 @@ const ACTIONS = {
     logUserIn: function(email, password) {
         User.login(email, password).then(
             (responseData) => {
-                alert(`user ${email} logged in!`)
+                toastr.success(`user ${email} logged in!`)
                 console.log(responseData)
                 location.hash = 'home' //want the page to re-route to the home page after successfull login
             },
-            (error) => {
-                alert('FAILURE LOGGING IN')
-                console.log(error)
+            (err) => {
+                toastr.error('FAILURE LOGGING IN')
+                console.log(err)
             }
         )
     },
@@ -72,12 +73,12 @@ saveCampaign: function(campaignObj){
         var campaign = new CampaignModel(campaignObj)
         campaign.save().then(
             (responseData)=>{
-                alert("Thanks for submitting!!!")
+                toastr.success("Thanks for submitting!!!")
                 location.hash='home'
                 console.log(responseData)
             },
             (error)=>{
-                alert('FAILURE')
+                toastr.error('FAILURE')
                 console.log(error)
             }
         )

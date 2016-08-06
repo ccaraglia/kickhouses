@@ -33,7 +33,7 @@ const HomeView = React.createClass({
 
     render: function(){
         return(
-            <div className="homeView">
+            <div className="container-full homeView">
                 <Header />
                 <ListingsView campaignColl={this.state.collection} />
             </div>

@@ -16,7 +16,7 @@ const ListingsView = React.createClass({
     render: function(){
         console.log(this.props.campaignColl)
         return(
-            <div className="listingsView">
+            <div className="container-narrow listingsView">
 
                 {this._showListingJSX( this.props.campaignColl  )}
 

@@ -1,15 +1,44 @@
-* {
+ * {
   box-sizing: border-box;
-  font-family: 'Helvetica Neue';
   font-weight: 200;
   transition: all .5s;
-  /* background: white; */
 }
+
+@import "./margo-lib/margo.scss";
 
 img {
   max-width: 100%;
   height: 40px;
 }
+
+.landingStyle{
+position: relative;
+top: 0px;
+
+
+}
+#landingLogo{
+
+
+}
+//landing page image
+.with-bg-size
+   {
+
+     background-position: center;
+
+      background: url('../images/landingPageImg.jpg') 0% 10% no-repeat;
+     background-size: cover;
+  /*   overflow-y:hidden;
+     position:fixed;
+     top:0px;
+     left:0px;
+     z-index:900;
+     width:100%;
+     overflow-y:hidden;
+     overflow-x:hidden;
+     margin:auto;   */
+   }
 
 #thumb{
     height: 225px;
@@ -19,11 +48,12 @@ img {
 }
 
 #colLeft{
-
+    width: 100px;
     display: inline-block;
 }
 #colRight{
 
+    margin-left: 10px;
     display: inline-block;
 
 }
@@ -46,11 +76,12 @@ img.searchey {
   overflow: hidden;
   perspective: 100px;
 }
+
 .flip-nav > * {
   transform-style: preserve-3d;
 }
 .flip-nav.view-1 .search-bar {
-  top: -35px;
+  //top: -35px;
   transform: rotateX(90deg);
 }
 .flip-nav.view-1 nav {
@@ -155,7 +186,7 @@ nav ul .show-search:hover {
 
 
 h1 {
-	font-size: 300px;
-	text-align: center;
-	color: fuchsia;
+//	font-size: 300px;
+//	text-align: center;
+//	color: fuchsia;
 }

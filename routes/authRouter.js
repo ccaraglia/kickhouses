@@ -34,10 +34,27 @@ authRouter
     if (req.user) res.json({user: req.user});
     else res.json({user: null})
   })
-  .post('/login', passport.authenticate('local'), function(req, res){
-      let userCopy = req.user.toObject()
-      delete userCopy.password
-      res.json(userCopy)
+  .post('/login', function(req, res, next){
+      passport.authenticate('local', function(err,user,info) {
+            if (err || !user) {
+                res.status(400).send({
+                    msg: 'incorrect email/password combination'
+                })
+            }
+            else {
+                delete user.password
+                res.json(user)
+            }
+      })(req,res,next)
+      // if (!req.user) {
+      //   res.status(400).send({
+      //       msg: 'incorrect email/password combination'
+      //   })
+      //   return
+      // }
+      // let userCopy = req.user.toObject()
+      // delete userCopy.password
+      // res.json(userCopy)
   })
   .get('/logout', function (req, res) {
     if (req.user) {

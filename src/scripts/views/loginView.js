@@ -3,6 +3,7 @@
 import React from 'react'
 import ACTIONS from '../actions'
 import Header from './header'
+import toastr from 'toastr'
 
 const LoginView = React.createClass({
     render: function() {

@@ -78,30 +78,37 @@ const DetailView = React.createClass({
     if (isNaN(percent)){percent = 0}
 
         return(
-            <div className="homeView">
+            <div className="container-full homeView">
                 <Header />
-                <h2>{this.state.model.get('title')}</h2>
-                <h3>{this.state.model.get('subtitle')}</h3>
-                <h4>ZIPCODE: {this.state.model.get('zipcode')}</h4>
-                <h4>Wished funds: ${this.state.model.get('value')}</h4>
-                <h4>{this.state.model.get('description')}</h4>
+                <div className="container-narrow">
+                    <h2>{this.state.model.get('title')}</h2>
+                    <h3>{this.state.model.get('subtitle')}</h3>
+                    <h4>ZIPCODE: {this.state.model.get('zipcode')}</h4>
+                    <h4>Wished funds: ${this.state.model.get('value')}</h4>
+                    <h4>{this.state.model.get('description')}</h4>
 
 
-                <h4>Pledged funds {Math.floor(percent)}%</h4>
+                    <h4>Pledged funds {Math.floor(percent)}%</h4>
 
-                <img id="thumb" src={this.state.model.get('imageUrl')} />
+                    <img id="thumb" src={this.state.model.get('imageUrl')} />
 
-                <div className="campaignPledgingForm container">
-                    <form onSubmit={this._handlePledge} >
+                    <div className="campaignPledgingForm container">
+                        <form className="form-group" onSubmit={this._handlePledge} >
 
-                        <div className="form-group">
-                            <input className="form-control" type="text" name="amount" placeholder="Enter pledging amount"/>
-                        </div>
+                            <div className="form-field">
+                                <input className="form-control" type="text" name="amount" placeholder="Enter pledging amount"/>
 
-                        <button className="btn btn-default" type="submit" > PLEDGE </button>
+                            </div>
 
-                    </form>
-            </div>
+                            <div className="form-field">
+                                <button className="btn btn-default" type="submit" > PLEDGE </button>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+                </div>
             </div>
 
             )
