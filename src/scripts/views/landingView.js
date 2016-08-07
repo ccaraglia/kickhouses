@@ -1,6 +1,19 @@
 import React from 'react'
 
 const LandingView = React.createClass({
+    render: function(){
+        return(
+            <div>
+            <HeroView />
+            <FeaturesSection />
+            </div>
+            )
+    }
+
+
+})
+
+const HeroView = React.createClass({
 
     render: function(){
         return(
@@ -12,11 +25,9 @@ const LandingView = React.createClass({
 
                     <div className="container-narrow landingStyle">
 
-                        <h1 className="title"><img id="landingLogo" src="../images/KICKHousesLogo.png"/> </h1>
+                        <h1 className="title">KICKHouses.</h1>
 
-                            <h3 className="subtitle"><img src="../images/KICKHousesLogo.png"/>Cheaper than owning.  Cheaper than renting.</h3>
-
-                            <button className="btn">Get Started</button>
+                            <button className="btn startButton"><a id="hyperlink1" href="#login"> Get Started </a></button>
 
 
 
@@ -32,6 +43,43 @@ const LandingView = React.createClass({
 
 
 })
+
+
+const FeaturesSection = React.createClass({
+   render: function(){
+     return(
+       <div className="container-full features-list">
+         <div className="container-narrow">
+
+           <h2>KICKHouses.  Cheaper than owning.  Cheaper than renting.</h2>
+
+           <div className="grid-container">
+
+             <div className="sm-12-x-12 md-4-x-12 feature">
+                <i className="fa fa-bullhorn fa-5x" aria-hidden="true"></i>
+                <h3>Create a campaign</h3>
+             </div>
+
+             <div className="sm-12-x-12 md-4-x-12 feature">
+
+                <i className="fa fa-money fa-5x" aria-hidden="true"></i>
+                <h3>Finance your home with private equity</h3>
+             </div>
+
+             <div className="sm-12-x-12 md-4-x-12 feature">
+
+               <i className="fa fa-arrow-down fa-5x" aria-hidden="true"></i>
+               <h3>Reduce monthly expenses</h3>
+             </div>
+
+           </div>
+        </div>
+    </div>
+)}
+
+})
+
+
 
 
 export default LandingView

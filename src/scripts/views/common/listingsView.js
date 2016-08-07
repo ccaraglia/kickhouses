@@ -43,9 +43,9 @@ const SingleListingView = React.createClass({
             </div>
 
             <div id="colRight">
-            <a href={`#campaigns/detail/${this.props.campaignModel.id}`} className='campaign'>
+            <a id='textListing' href={`#campaigns/detail/${this.props.campaignModel.id}`} className='campaign'>
             <h2>{this.props.campaignModel.get('title')}</h2>
-            <h4><i className="fa fa-usd"></i> {this.props.campaignModel.get('value')}</h4>
+            <h4><i className="fa fa-usd"></i> {this.props.campaignModel.get('value').toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</h4>
             </a>
             </div>
 

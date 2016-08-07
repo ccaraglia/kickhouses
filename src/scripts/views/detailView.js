@@ -76,6 +76,8 @@ const DetailView = React.createClass({
 
     }
     if (isNaN(percent)){percent = 0}
+    if (!backersSize){backersSize=0}
+        console.log(backersSize)
 
         return(
             <div className="container-full homeView">
@@ -84,11 +86,11 @@ const DetailView = React.createClass({
                     <h2>{this.state.model.get('title')}</h2>
                     <h3>{this.state.model.get('subtitle')}</h3>
                     <h4>ZIPCODE: {this.state.model.get('zipcode')}</h4>
-                    <h4>Wished funds: ${this.state.model.get('value')}</h4>
+                    <h4>Funds needed: ${this.state.model.get('value').toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</h4>
                     <h4>{this.state.model.get('description')}</h4>
 
 
-                    <h4>Pledged funds {Math.floor(percent)}%</h4>
+                    <h4>Pledged funds: {Math.floor(percent)}% by {backersSize} pledgers.</h4>
 
                     <img id="thumb" src={this.state.model.get('imageUrl')} />
 

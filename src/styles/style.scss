@@ -15,11 +15,27 @@ img {
 position: relative;
 top: 0px;
 
+.startButton{
+    float: right;
+}
 
 }
 #landingLogo{
 
+}
 
+.title{
+    text-align: right;
+    color: #fffdfd;
+
+}
+
+#textListing{
+    text-decoration: none;
+}
+
+#hyperlink1{
+    text-decoration: none;
 }
 //landing page image
 .with-bg-size
@@ -27,7 +43,7 @@ top: 0px;
 
      background-position: center;
 
-      background: url('../images/landingPageImg.jpg') 0% 10% no-repeat;
+      background: url('../images/aussies.jpg') 0% 10% no-repeat;
      background-size: cover;
   /*   overflow-y:hidden;
      position:fixed;
@@ -50,16 +66,18 @@ top: 0px;
 #colLeft{
     width: 100px;
     display: inline-block;
+    text-decoration: none;
 }
 #colRight{
 
     margin-left: 10px;
     display: inline-block;
+    text-decoration: none;
 
 }
 
 #thumbnail{
-    height: 60px;
+    height: 82px;
     margin-right: 15px;
     vertical-align: bottom;
 }

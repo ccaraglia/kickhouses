@@ -33,7 +33,7 @@ const ACTIONS = {
 
     logUserOut: function() { // we want the page to reroute to the login page after a user has logged out (server keeps track os user being logged in with a 'session')
         User.logout().then(
-            () => location.hash = 'login'
+            () => location.hash = 'landing'
         )
     },
 
