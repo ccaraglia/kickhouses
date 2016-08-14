@@ -35,24 +35,30 @@ const MyPortfolioView = React.createClass({
     render: function(){
         //  ,,,,(6),,,,CC
 
-        console.log('user is', this.state.userModel)
-        console.log('campBacked', this.state.collection.models.length)
+ //       console.log('user is', this.state.userModel)
+ //       console.log('campBacked', this.state.collection.models.length)
 
 
         var size = User.getCurrentUser().campBacked.length
        // for (var i = 0; i < size; i++){
-        console.log('size is', size)
+  //      console.log('size is', size)
 
         let myCollection = this.state.collection
         //}
+        if (this.state.collection.models[0].get('backers')[0]){
+        console.log('campaign here>>>>', this.state.collection.models[0].get('backers')[0].backerId)
+        console.log('campaign here>>>>', this.state.collection.models[0].get('backers')[0].shareValue)
+        console.log('Current user: ', User.getCurrentUser()._id)
 
-        console.log('Current user: ', User.getCurrentUser())
+
+}
 
 
         return(
             <div className="homeView">
                 <Header />
-                <ListingsView campaignColl = { myCollection } />
+                <ListingsView  showPledged = {true} campaignColl = { myCollection } />
+                }
             </div>
 
             )

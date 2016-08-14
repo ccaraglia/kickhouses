@@ -73,6 +73,13 @@ const FeaturesSection = React.createClass({
              </div>
 
            </div>
+
+           <h3> <i className="fa fa-quote-left" aria-hidden="true"></i> Buying our home with 5 co-owners was the wisest decision <i className="fa fa-quote-right" aria-hidden="true"></i> - Winona</h3>
+
+           <h3> <i className="fa fa-quote-left" aria-hidden="true"></i> I only own a share of my house and I have no mortgage! <i className="fa fa-quote-right" aria-hidden="true"></i> -Travis</h3>
+
+            <h3> <i className="fa fa-quote-left" aria-hidden="true"></i> At first my wife was skeptical, she now enjoys the extra money! <i className="fa fa-quote-right" aria-hidden="true"></i> -Jim</h3>
+
         </div>
     </div>
 )}
