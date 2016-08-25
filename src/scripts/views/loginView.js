@@ -24,7 +24,7 @@ const RegisterBox = React.createClass({
         ACTIONS.registerUser({
             email: evt.currentTarget.email.value,
             password: evt.currentTarget.password.value,
-            name: evt.currentTarget.userName.value
+          //  name: evt.currentTarget.userName.value
         })
     },
 
